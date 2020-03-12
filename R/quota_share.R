@@ -55,9 +55,9 @@ treaty_apply_premiums.treaty_quota_share <- function(treaty, premiums) {
 print.quota_share_premiums_analysis <- function(x, ...) {
   out <- glue::glue(
     "Quota Share premium analysis
-      - Premiums retained: {x$premiums_retained}
-      - Premiums ceded: {x$premiums_ceded}
-      - Ceding commission: {x$ceding_commission}
+      - Premiums retained: {format_currency(x$premiums_retained)}
+      - Premiums ceded: {format_currency(x$premiums_ceded)}
+      - Ceding commission: {format_currency(x$ceding_commission)}
     "
   )
   print(out)
@@ -85,9 +85,9 @@ treaty_apply_claims.treaty_quota_share <- function(treaty, claims) {
 print.quota_share_claims_analysis <- function(x, ...) {
   out <- glue::glue(
     "Quota Share claims analysis
-      - Total claims: {scales::dollar(x$total_claims, prefix = '')}
-      - Ceded losses: {scales::dollar(x$ceded_losses, prefix = '')}
-      - Retained losses: {scales::dollar(x$retained_losses, prefix = '')}
+      - Total claims: {format_currency(x$total_claims)}
+      - Ceded losses: {format_currency(x$ceded_losses)}
+      - Retained losses: {format_currency(x$retained_losses)}
     "
   )
   print(out)
