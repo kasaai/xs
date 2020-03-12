@@ -30,8 +30,8 @@ policies <- tribble(
 treaty %>%
   treaty_apply_premiums(policies)
 #> Quota Share premium analysis
-#>   - Premiums retained: 3000
-#>   - Premiums ceded: 4500
+#>   - Premiums retained: 3,000
+#>   - Premiums ceded: 4,500
 #>   - Ceding commission: 450
 ```
 
