@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# xs
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Sandbox for prototyping a package for analyzing reinsurance treaties
+
+```{r, message=FALSE}
+library(xs)
+library(tidyverse)
+treaty <- quota_share(ceded = 0.6, ceding_commission = 0.1)
+treaty
+```
+
+```{r}
+policies <- tribble(
+  ~ policy_id, ~ premium,
+  0, 2000,
+  1, 3000,
+  2, 2500
+)
+
+treaty %>%
+  treaty_apply_premiums(policies)
+```
+
+```{r}
+claims <- tribble(
+  ~ claim_id, ~ loss,
+  0, 400000,
+  1, 350000
+)
+
+treaty %>%
+  treaty_apply_claims(claims)
+```
